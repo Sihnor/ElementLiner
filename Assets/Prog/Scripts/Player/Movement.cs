@@ -7,13 +7,19 @@ namespace Prog.Scripts.Player
 {
     public class Movement : MonoBehaviour
     {
+        private Vector3 MoveDirection;
+        private Rigidbody Rigidbody;
+        
+        [SerializeField, Range(0, 10)] private float JumpHeight = 10;
 
         private void Awake()
         {
-            GetComponent<PlayerInput>().actions["Move"].started += OnMoveStart;
+            this.Rigidbody = GetComponent<Rigidbody>();
+            
+            GetComponent<PlayerInput>().actions["Move"].performed += OnMoveStart;
             GetComponent<PlayerInput>().actions["Move"].canceled += OnMoveStop;
             
-            GetComponent<PlayerInput>().actions["Jump"].started += OnJumpStart;
+            GetComponent<PlayerInput>().actions["Jump"].performed += OnJumpStart;
             GetComponent<PlayerInput>().actions["Jump"].canceled += OnJumpStop;
             
             GetComponent<PlayerInput>().actions["Slide"].performed += OnSlideStart;
@@ -21,34 +27,39 @@ namespace Prog.Scripts.Player
             
         }
 
-        private void OnSlideStop(InputAction.CallbackContext obj)
+        private void OnMoveStart(InputAction.CallbackContext obj)
         {
-            throw new NotImplementedException();
+            this.MoveDirection = obj.ReadValue<Vector2>() * 10;
+            if (this.MoveDirection.y < 0)
+                this.MoveDirection.y = 0;
         }
-
-        private void OnJumpStop(InputAction.CallbackContext obj)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         private void OnMoveStop(InputAction.CallbackContext obj)
         {
-            throw new NotImplementedException();
+            this.MoveDirection = Vector3.zero;
         }
+        
+        private void OnJumpStart(InputAction.CallbackContext obj)
+        {
+        }
+        
+        private void OnJumpStop(InputAction.CallbackContext obj)
+        {
+        }
+
 
         private void OnSlideStart(InputAction.CallbackContext obj)
         {
-            throw new NotImplementedException();
         }
 
-        private void OnJumpStart(InputAction.CallbackContext obj)
+        private void OnSlideStop(InputAction.CallbackContext obj)
         {
-            throw new NotImplementedException();
         }
 
-        private void OnMoveStart(InputAction.CallbackContext obj)
+
+        private void FixedUpdate()
         {
-            throw new NotImplementedException();
+            //this.Rigidbody.AddForce(this.MoveDirection.x, this.Rigidbody.velocity.y, this.MoveDirection.y);
         }
     }
 }
