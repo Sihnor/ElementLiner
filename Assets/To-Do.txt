@@ -1,0 +1,18 @@
+Organisatorisch:
+|-> Marcel in DEV rein mergen - erledigt
+
+Game:
+|-> Spieler sollte sich in die Richtige richtung rotieren wenn er an einer abzweigung erreicht hat. (sollte funktonieren wenn du den ganzen charakter rotierst)
+    Spieler biegt automatisch ab, die kamera soll nach dem abiegen umschwenken. - Freitag
+
+|-> Die Pipes im Level platzieren. (Einfach rein legen) - Freitag
+
+UI:
+|-> UI einbinden - erledigt
+|-> In-Game UI auf GameScene legen und herzen einpflegen. (Es gibt ein SkriptableObjekt inm Ordner Varaibles. Dies event kannst du einfach abonieren um das Leben zu aktualiesieren)
+
+Audio:
+|-> Audio einpflegen - sofern moeglich?! - Freitag?
+
+Animation:
+|-> Animations + Animator besorgen und einrichten - erledigt
