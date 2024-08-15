@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - FireElement
+  - EarthElement
+  - WaterElement
+  - AirElement
+  - OtherObstacle
   layers:
   - Default
   - TransparentFX
@@ -15,11 +20,11 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - FireElement
+  - EarthElement
+  - WaterElement
+  - AirElement
+  - OtherObstacle
   - 
   - 
   - 
